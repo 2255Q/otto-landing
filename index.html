@@ -440,13 +440,13 @@
       <span class="eyebrow">Founding Members · Limited spots</span>
       <h2>Lock in founding pricing</h2>
       <p class="lead">Reserve your spot with a fully-refundable $25 deposit. Founding Members get launch-day access, locked-in lifetime pricing, and a direct line to shape what Otto builds next.</p>
-      <a href="https://buy.stripe.com/test_aFa00d8CYfL1glK7sgabK00" target="_blank" rel="noopener" class="btn btn-primary" style="background:#fff;color:var(--ink)">Reserve my spot — $25 refundable</a>
+      <a href="https://buy.stripe.com/bJe9ATajO9YV0Qx5uvbQY00" target="_blank" rel="noopener" class="btn btn-primary" style="background:#fff;color:var(--ink)">Reserve my spot — $25 refundable</a>
       <p style="margin-top:14px;font-size:13px;color:#d2d2d7">Not ready to commit? Drop your info in the form below and I'll reach out personally.</p>
 
       <div style="height:34px"></div>
 
       <!-- VALIDATION FORM -->
-      <form class="form-card" action="https://formspree.io/f/mjgdgryn" method="POST">
+      <form id="ottoForm" class="form-card" action="https://formspree.io/f/mjgdgryn" method="POST">
         <h3>Get early access</h3>
         <p class="sub">Tell me a bit about how you sell today — it helps me build Otto around you.</p>
 
@@ -502,8 +502,16 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Request early access</button>
+        <p id="ottoFormError" style="display:none;font-size:13px;color:#d4537e;margin-top:10px;text-align:center">Something went wrong — please try again in a moment.</p>
         <p class="form-fine">No spam. You'll hear from me, the founder — personally.</p>
       </form>
+
+      <div id="ottoThanks" class="form-card" style="display:none;text-align:center">
+        <div style="font-size:44px;line-height:1">🎉</div>
+        <h3 style="margin-top:8px">You're on the founding list!</h3>
+        <p class="sub" style="margin-top:8px">Thanks — you're in. I'll personally reach out with your Founding Member details and early access. Keep an eye on your inbox.</p>
+        <p class="sub" style="margin-top:14px">Want to lock in your spot now? <a href="https://buy.stripe.com/bJe9ATajO9YV0Qx5uvbQY00" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600">Reserve with a $25 deposit →</a></p>
+      </div>
     </div>
   </div>
 </section>
@@ -541,6 +549,35 @@
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
   },{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // AJAX form submit → inline branded thank-you (stays on leadotto.com)
+  const ottoForm = document.getElementById('ottoForm');
+  if (ottoForm) {
+    ottoForm.addEventListener('submit', async function(e){
+      e.preventDefault();
+      const btn = ottoForm.querySelector('button[type="submit"]');
+      const err = document.getElementById('ottoFormError');
+      const label = btn.textContent;
+      btn.textContent = 'Sending…'; btn.disabled = true; err.style.display = 'none';
+      try {
+        const res = await fetch(ottoForm.action, {
+          method: 'POST',
+          body: new FormData(ottoForm),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          ottoForm.style.display = 'none';
+          const thanks = document.getElementById('ottoThanks');
+          thanks.style.display = 'block';
+          thanks.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          throw new Error('bad response');
+        }
+      } catch (e) {
+        btn.textContent = label; btn.disabled = false; err.style.display = 'block';
+      }
+    });
+  }
 </script>
 </body>
 </html>
