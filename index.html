@@ -101,8 +101,8 @@
   .float-card .k{font-size:11px;color:var(--gray);text-transform:uppercase;letter-spacing:.05em;font-weight:600}
   .float-card .v{font-size:26px;font-weight:680;letter-spacing:-.02em;line-height:1.1}
   .float-card .d{font-size:12px;color:#1a9d54;font-weight:700;margin-top:2px}
-  .fc-1{top:22px;left:-6px}
-  .fc-2{bottom:22px;right:-6px}
+  .fc-1{top:-18px;left:-10px}
+  .fc-2{bottom:-18px;right:-10px}
   @media(max-width:640px){
     .fc-1{top:10px;left:8px}.fc-2{bottom:10px;right:8px}
     .float-card{padding:9px 12px}.float-card .v{font-size:18px}
@@ -233,6 +233,10 @@
   .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:880px;margin:0 auto}
   @media(max-width:760px){.compare-grid{grid-template-columns:1fr}}
 
+  /* hero product mockup */
+  .hero-mock-grid{display:grid;grid-template-columns:1fr 1.05fr}
+  @media(max-width:640px){.hero-mock-grid{grid-template-columns:1fr}}
+
   /* reveal animation */
   .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
   .reveal.in{opacity:1;transform:none}
@@ -265,7 +269,33 @@
   <p class="hero-note reveal">More leads. More appointments. More commissions.</p>
 
   <div class="hero-visual reveal">
-    <img src="https://images.pexels.com/photos/9207094/pexels-photo-9207094.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="A happy family standing with their new car" fetchpriority="high" />
+    <div style="background:#fff;border:1px solid #e6e6e8;border-radius:22px;box-shadow:var(--shadow);overflow:hidden;text-align:left">
+      <div style="display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid #eef0f2;background:#fbfcfe">
+        <span style="width:11px;height:11px;border-radius:50%;background:#ff5f57;display:inline-block"></span>
+        <span style="width:11px;height:11px;border-radius:50%;background:#febc2e;display:inline-block"></span>
+        <span style="width:11px;height:11px;border-radius:50%;background:#28c840;display:inline-block"></span>
+        <span style="margin-left:10px;font-size:12px;color:var(--gray)">app.leadotto.com</span>
+        <span style="margin-left:auto;font-size:11px;font-weight:700;color:var(--accent);background:#e8f1fd;padding:4px 10px;border-radius:999px">⚡ Posted in 30 seconds</span>
+      </div>
+      <div class="hero-mock-grid">
+        <div style="padding:20px;border-right:1px solid #eef0f2">
+          <div style="font-size:11px;font-weight:600;color:var(--gray);text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px">1 · Paste the car link</div>
+          <div style="display:flex;gap:8px;align-items:center;border:1px solid #e6e6e8;border-radius:12px;padding:10px 12px;font-size:12px;background:#fff"><span style="color:#9aa0a6">🔗</span><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">mercedesbenzofjacksonville.com/…/GLB-250</span></div>
+          <div style="margin-top:10px;background:var(--accent);color:#fff;text-align:center;font-weight:600;font-size:14px;padding:11px;border-radius:12px">Auto-fill from link</div>
+          <div style="margin-top:16px;font-size:11px;font-weight:600;color:var(--gray);text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px">2 · Otto fills it in</div>
+          <div style="border-radius:12px;overflow:hidden;border:1px solid #eef0f2"><img src="https://images.pexels.com/photos/33980828/pexels-photo-33980828.jpeg?auto=compress&cs=tinysrgb&w=800" alt="White luxury SUV listing pulled in by Otto" fetchpriority="high" style="display:block;width:100%;height:96px;object-fit:cover" /></div>
+          <div style="margin-top:8px;line-height:1.5"><div style="font-weight:700;font-size:14px">2025 Mercedes-Benz GLB 250</div><div style="font-size:13px;color:#1a9d54;font-weight:600">$45,891 · 2,355 mi</div><div style="font-size:12px;color:var(--gray)">Polar White · 5 photos pulled</div></div>
+        </div>
+        <div style="padding:20px;background:#fafbfc">
+          <div style="font-size:11px;font-weight:600;color:var(--gray);text-transform:uppercase;letter-spacing:.04em;margin-bottom:10px">3 · Ready to post — everywhere</div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="background:#fff;border:1px solid #e9ebee;border-radius:12px;padding:11px 13px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span style="width:18px;height:18px;border-radius:5px;background:#1877f2;display:inline-block"></span><span style="font-size:13px;font-weight:600">Facebook</span><span style="margin-left:auto;font-size:11px;color:var(--accent);font-weight:600">Copy</span></div><div style="font-size:12px;color:#4a4a4f;line-height:1.5">Just in — 2025 GLB 250, only 2,355 mi 🚗 Premium pkg, pano roof. Text Sal 904-315-8080</div></div>
+            <div style="background:#fff;border:1px solid #e9ebee;border-radius:12px;padding:11px 13px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span style="width:18px;height:18px;border-radius:5px;background:#e1306c;display:inline-block"></span><span style="font-size:13px;font-weight:600">Instagram</span><span style="margin-left:auto;font-size:11px;color:var(--accent);font-weight:600">Copy</span></div><div style="font-size:12px;color:#4a4a4f;line-height:1.5">Fresh on the lot ✨ #MercedesGLB #Jacksonville #CarsForSale</div></div>
+            <div style="background:#fff;border:1px solid #e9ebee;border-radius:12px;padding:11px 13px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span style="width:18px;height:18px;border-radius:5px;background:#111;display:inline-block"></span><span style="font-size:13px;font-weight:600">TikTok</span><span style="margin-left:auto;font-size:11px;color:var(--accent);font-weight:600">Copy</span></div><div style="font-size:12px;color:#4a4a4f;line-height:1.5">POV: your next Benz just dropped 👀 DM Sal to drive it</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="float-card fc-1"><div class="k">New leads</div><div class="v">21</div><div class="d">▲ 7 today</div></div>
     <div class="float-card fc-2"><div class="k">Appointments booked</div><div class="v">6</div><div class="d">▲ 2 this week</div></div>
   </div>
